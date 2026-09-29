@@ -1,1 +1,1 @@
-public enum IP: Sendable {}
+public enum IP {}

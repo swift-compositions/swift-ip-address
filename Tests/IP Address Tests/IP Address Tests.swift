@@ -2,21 +2,21 @@ import IP_Address
 import Testing
 
 @Suite
-struct `IP Address Tests` {
-    @Suite struct Unit {}
-    @Suite struct `Edge Case` {}
-    @Suite struct Integration {}
-}
+struct `IP Address` {
 
-extension `IP Address Tests`.Unit {
     @Test
-    func `IP Address module re-exports IPv4_Standard and IPv6_Standard`() {
+    func `IP Address names IPv4 and IPv6 addresses through one import`() {
+        let v4 = IPv4.Address(rawValue: 0x7F00_0001)
+        let v6 = IPv6.Address(0, 0, 0, 0, 0, 0, 0, 1)
+
+        #expect(v4 == IPv4.Address.loopback)
+        #expect(v6.is.loopback)
     }
 
     @Test
     func `Address preserves canonical payloads and provider order`() {
         let v6 = IPv6.Address(0, 0, 0, 0, 0, 0, 0, 1)
-        let v4 = IPv4.Address(rawValue: 0x7f00_0001)
+        let v4 = IPv4.Address(rawValue: 0x7F00_0001)
         let addresses: [IP.Address] = [.v6(v6), .v4(v4)]
 
         #expect(addresses == [.v6(v6), .v4(v4)])
