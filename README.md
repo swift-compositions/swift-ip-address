@@ -1,28 +1,3 @@
 # swift-ip-address
 
-![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
-
-IPv4 and IPv6 address value types for Swift.
-
-## Installation
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/swift-compositions/swift-ip-address.git", branch: "main")
-]
-```
-
-Add the product to your target:
-
-```swift
-.target(
-    name: "YourTarget",
-    dependencies: [
-        .product(name: "IP Address", package: "swift-ip-address")
-    ]
-)
-```
-
-## License
-
-Apache 2.0. See [LICENSE](LICENSE.md).
+Use this package when a value can be either an IPv4 or an IPv6 address, such as a resolver's answers or a list of hosts to connect to. Start from `IP.Address`. It also re-exports `IPv4.Address` and `IPv6.Address`, so one import names both families. If you only ever handle one family, depend on swift-ipv4-standard or swift-ipv6-standard instead. To connect or bind a socket with these values, use swift-sockets-ip-address.
