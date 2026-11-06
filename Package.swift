@@ -32,7 +32,7 @@ let package = Package(
         .testTarget(
             name: "IP Address Tests",
             dependencies: [
-                "IP Address"
+                .target(name: "IP Address")
             ]
         ),
     ],
